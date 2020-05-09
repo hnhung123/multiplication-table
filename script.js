@@ -1,13 +1,19 @@
-function bangcuuchuong() {
-    let content = '<tr>'
-    for (i = 1; i <= 9; i++) {
-        for (n = 1; n <= 9; n++) {
-            content += '<td>' + n + 'x' + i + '=' + (n * i)
+function bangcuuchuong(start, end) {
+    let content = ''
+    for (i = start; i <= end; i++) {
+        content += '<tr>'
+        for (n = start; n <= end; n++) {
+            content += `<td>
+             ${n} x ${i} = ${n * i}
+             </td>`
         }
-        content += '</td></tr>'
+        content += '</tr>'
     }
-    let x = document.getElementById('multiplication-table');
-    x.innerHTML = content;
+    return content
+}
+function displayBangCuuChuong(){
+    let result = bangcuuchuong(1,10);
+    return result
 }
 
-bangcuuchuong()
+document.getElementById('multiplication-table').innerHTML = displayBangCuuChuong() ;
